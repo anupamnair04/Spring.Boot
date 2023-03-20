@@ -1,0 +1,5 @@
+package com.spring.RestApp.entity;
+
+public class Employee {
+
+}

@@ -1,0 +1,27 @@
+package com.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MyController {
+		
+		@RequestMapping("/") 
+		public String entryPointMethod() {
+			 System.out.println("Welcome page...");
+			 return "welcome.jsp";	
+		}
+		 
+		@RequestMapping("/abc") 
+		public ModelAndView  sayhellotouser(HttpServletRequest request) {
+			String usr=request.getParameter("user");
+			ModelAndView mv=new ModelAndView();
+			mv.addObject("usr", usr);
+			mv.setViewName("info.jsp");		 
+			 return mv;
+		}
+}

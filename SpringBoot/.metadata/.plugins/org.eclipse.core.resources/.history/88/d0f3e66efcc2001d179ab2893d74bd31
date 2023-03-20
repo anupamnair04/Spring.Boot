@@ -1,0 +1,24 @@
+package com.spring.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.seed.dao.ProductRepository;
+import com.seed.entity.Product;
+
+@Service
+public class ProductService {
+		@Autowired
+		ProductRepository repo;
+		
+		public List<Product> getProducts(){
+			return repo.findAll();	
+		}
+		public Product getProductById(int pid) {		
+			return repo.getById(pid);		
+		}
+		public void saveProduct(Product p) {
+			repo.save(p);
+		}
+}
